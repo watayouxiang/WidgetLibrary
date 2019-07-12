@@ -14,12 +14,13 @@ public class MainActivity extends ListActivity {
     @Override
     protected ListData getListData() {
         return new ListData()
-                .addClick("测试IOSPhotoDialog", new View.OnClickListener() {
+                .addClick("仿iOS风格的相片弹窗", new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
                         showPhotoDialog(v.getContext());
                     }
-                });
+                })
+                .addActivity(this, "翻滚式公告", NoticeFlipperActivity.class);
     }
 
     private void showPhotoDialog(final Context context) {
