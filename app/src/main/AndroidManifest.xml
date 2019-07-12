@@ -19,6 +19,7 @@
             </intent-filter>
         </activity>
         <activity android:name=".NoticeFlipperActivity" />
+        <activity android:name=".SMSCodeViewActivity" />
     </application>
 
 </manifest>

@@ -20,7 +20,8 @@ public class MainActivity extends ListActivity {
                         showPhotoDialog(v.getContext());
                     }
                 })
-                .addActivity(this, "翻滚式公告", NoticeFlipperActivity.class);
+                .addActivity(this, "翻滚式公告", NoticeFlipperActivity.class)
+                .addActivity(this, "短信验证码控件", SMSCodeViewActivity.class);
     }
 
     private void showPhotoDialog(final Context context) {
