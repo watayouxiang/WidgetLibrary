@@ -66,8 +66,8 @@ public class SMSCodeView extends RelativeLayout {
         });
         //初始化配置
         EditText nextEditText = getNextEditText();
-        if (nextEditText != null) {
-            positionEditText(nextEditText);
+        for (EditText et : mEtList) {
+            et.setEnabled(et == nextEditText);
         }
         tv_sendCode.setEnabled(true);
     }

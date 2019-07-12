@@ -32,7 +32,7 @@ new IOSPhotoDialog.Builder(context)
 
 ### 2）翻滚式公告
 
-> 优势：
+> 优点：
 > 
 > 1. 内部实现复用机制，不论数据量多大，均可保持流畅。
 > 2. 当界面不可见停止轮播，页面可见时恢复轮播。
@@ -58,4 +58,34 @@ flipper.startWithList(Arrays.asList(
             "2. 心中有阳光，脚底有力量！",
             "3. 有兴趣的话点点关注，明早十点不见不散。"
     ));
+```
+
+### 3）短信验证码控件
+
+```
+<com.watayouxiang.widgetlibrary.SMSCodeView
+    android:id="@+id/smsCodeView"
+    android:layout_width="match_parent"
+    android:layout_height="80dp"
+    android:layout_margin="20dp" />
+
+//短信验证码控件
+SMSCodeView smsCodeView = findViewById(R.id.smsCodeView);
+//设置监听
+smsCodeView.setCallback(new SMSCodeView.Callback() {
+    @Override
+    public void onInputFinished(String code) {
+    	//短信验证码输入完成回调
+    }
+    @Override
+    public void onClickBtn() {
+    	//点击发送验证码btn回调
+    }
+});
+//修改倒计时时间
+smsCodeView.setCountDownTime(60);
+//开始倒计时
+smsCodeView.startCountDown();
+//弹出键盘
+smsCodeView.popKeyboard();
 ```
