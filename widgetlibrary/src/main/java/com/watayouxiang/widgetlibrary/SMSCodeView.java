@@ -58,7 +58,6 @@ public class SMSCodeView extends RelativeLayout {
         tv_sendCode.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View v) {
-                startCountDown();
                 if (mCallback != null) {
                     mCallback.onClickBtn();
                 }
