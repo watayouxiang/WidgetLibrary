@@ -59,6 +59,8 @@ public class SMSCodeViewActivity extends DemoActivity {
                     public void onClick(View v) {
                         smsCodeView.popKeyboard();
                     }
-                });
+                })
+                .addSection("逻辑：点击发送验证码btn --> 网络请求发送验证码 --> 验证码发送成功，开始倒计时 --> 用户输入验证码 --> 验证码输入完成，获得回调")
+                .addSection("说明：样式固定不可修改，仅支持6位数字验证码输入。");
     }
 }

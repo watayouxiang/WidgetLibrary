@@ -62,6 +62,8 @@ flipper.startWithList(Arrays.asList(
 
 ### 3）短信验证码控件
 
+> 逻辑：点击发送验证码btn --> 网络请求发送验证码 --> 验证码发送成功，开始倒计时 --> 用户输入验证码 --> 验证码输入完成，获得回调
+
 ```
 <com.watayouxiang.widgetlibrary.SMSCodeView
     android:id="@+id/smsCodeView"
