@@ -14,21 +14,24 @@ import androidx.appcompat.app.AlertDialog;
 
 public class IOSPhotoDialog {
     private Context mContext;
-    private final OnClickListener mTakePhotoListener;
-    private final OnClickListener mSelectPhotoListener;
+    private OnClickListener mTakePhotoListener;
+    private OnClickListener mSelectPhotoListener;
+    private boolean mCanceledOnTouchOutside;
 
     private IOSPhotoDialog(Context context,
-                           final OnClickListener takePhotoListener,
-                           final OnClickListener selectPhotoListener) {
+                           OnClickListener takePhotoListener,
+                           OnClickListener selectPhotoListener,
+                           boolean canceledOnTouchOutside) {
         mContext = context;
         mTakePhotoListener = takePhotoListener;
         mSelectPhotoListener = selectPhotoListener;
+        mCanceledOnTouchOutside = canceledOnTouchOutside;
     }
 
     public void show() {
         final AlertDialog alertDialog = new AlertDialog.Builder(mContext).create();
-        //取消外部点击隐藏
-        alertDialog.setCanceledOnTouchOutside(false);
+        //设置外部点击是否隐藏
+        alertDialog.setCanceledOnTouchOutside(mCanceledOnTouchOutside);
         //设置自定义布局
         View rootView = LayoutInflater.from(mContext).inflate(R.layout.view_photo_dialog, null);
         rootView.findViewById(R.id.tv_cancel).setOnClickListener(new View.OnClickListener() {
@@ -73,6 +76,7 @@ public class IOSPhotoDialog {
     public static class Builder {
         private OnClickListener mTakePhotoListener;
         private OnClickListener mSelectPhotoListener;
+        private boolean mCanceledOnTouchOutside;
         private final Context mContext;
 
         public Builder setTakePhotoListener(OnClickListener l) {
@@ -85,6 +89,11 @@ public class IOSPhotoDialog {
             return this;
         }
 
+        public Builder setCanceledOnTouchOutside(boolean canceledOnTouchOutside) {
+            mCanceledOnTouchOutside = canceledOnTouchOutside;
+            return this;
+        }
+
         public Builder(Context context) {
             this.mContext = context;
         }
@@ -92,7 +101,8 @@ public class IOSPhotoDialog {
         public IOSPhotoDialog build() {
             return new IOSPhotoDialog(mContext,
                     mTakePhotoListener,
-                    mSelectPhotoListener);
+                    mSelectPhotoListener,
+                    mCanceledOnTouchOutside);
         }
     }
 

@@ -10,6 +10,15 @@ import com.watayouxiang.demoshell.ListData;
 import com.watayouxiang.widgetlibrary.IOSPhotoDialog;
 
 public class MainActivity extends ListActivity {
+    @Override
+    protected boolean showBackBtn() {
+        return false;
+    }
+
+    @Override
+    protected CharSequence getPageTitle() {
+        return getResources().getString(R.string.app_name);
+    }
 
     @Override
     protected ListData getListData() {
@@ -40,6 +49,7 @@ public class MainActivity extends ListActivity {
                         dialog.cancel();
                     }
                 })
+                .setCanceledOnTouchOutside(true)
                 .build()
                 .show();
     }

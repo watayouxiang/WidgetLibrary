@@ -1,7 +1,8 @@
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
+    android:orientation="vertical"
     android:paddingStart="10dp"
     android:paddingEnd="10dp"
     android:paddingBottom="10dp">
@@ -10,10 +11,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginBottom="8dp"
-        android:background="@drawable/photo_dialog_bg_white_r12"
-        app:layout_constraintBottom_toTopOf="@+id/tv_cancel"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent">
+        android:background="@drawable/photo_dialog_bg_white_r12">
 
         <TextView
             android:id="@+id/tv_takePhoto"
@@ -58,9 +56,6 @@
         android:gravity="center"
         android:text="取消"
         android:textColor="#2D97DE"
-        android:textSize="17sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        android:textSize="17sp" />
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+</LinearLayout>
