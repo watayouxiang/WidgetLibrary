@@ -7,6 +7,7 @@ import android.widget.Toast;
 
 import com.watayouxiang.demoshell.ListActivity;
 import com.watayouxiang.demoshell.ListData;
+import com.watayouxiang.widgetlibdemo.tablayout.TabLayoutActivity;
 import com.watayouxiang.widgetlibrary.IOSPhotoDialog;
 
 public class MainActivity extends ListActivity {

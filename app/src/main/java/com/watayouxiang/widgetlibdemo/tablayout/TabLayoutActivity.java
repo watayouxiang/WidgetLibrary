@@ -1,13 +1,15 @@
-package com.watayouxiang.widgetlibdemo;
+package com.watayouxiang.widgetlibdemo.tablayout;
 
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Toast;
 
 import androidx.recyclerview.widget.RecyclerView;
+import androidx.viewpager.widget.ViewPager;
 
 import com.watayouxiang.demoshell.DemoActivity;
 import com.watayouxiang.demoshell.ListData;
+import com.watayouxiang.widgetlibdemo.R;
 import com.watayouxiang.widgetlibrary.tablayout.TaoTabLayoutAdapter;
 
 import java.util.ArrayList;
@@ -39,8 +41,7 @@ public class TabLayoutActivity extends DemoActivity {
                 .addClick("选中最后一个", new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-                        int size = tabLayoutAdapter.getData().size();
-                        tabLayoutAdapter.setCurrentItem(size - 1);
+                        tabLayoutAdapter.setCurrentItem(tabLayoutAdapter.getData().size() - 1);
                     }
                 })
                 ;
@@ -49,8 +50,21 @@ public class TabLayoutActivity extends DemoActivity {
     @Override
     protected void initData(Bundle savedInstanceState) {
         super.initData(savedInstanceState);
-        RecyclerView recyclerView = findViewById(R.id.recyclerView);
-        tabLayoutAdapter = new TaoTabLayoutAdapter(this, recyclerView);
+        initTabLayout();
+        initTabLayout2();
+    }
+
+    private void initTabLayout2() {
+        RecyclerView tabLayout = findViewById(R.id.rv_tabLayout2);
+        ViewPager viewPager = findViewById(R.id.viewPager2);
+        viewPager.setAdapter(new TestVpAdapter(getSupportFragmentManager()));
+        TaoTabLayoutAdapter tabLayoutAdapter2 = new TaoTabLayoutAdapter(this, tabLayout);
+        tabLayoutAdapter2.setViewPager(viewPager);
+    }
+
+    private void initTabLayout() {
+        RecyclerView tabLayout = findViewById(R.id.rv_tabLayout);
+        tabLayoutAdapter = new TaoTabLayoutAdapter(this, tabLayout);
         tabLayoutAdapter.setNewData(getTestData());
         tabLayoutAdapter.setOnItemClickListener(new TaoTabLayoutAdapter.OnItemClickListener() {
             @Override

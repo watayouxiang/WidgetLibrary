@@ -12,6 +12,8 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.recyclerview.widget.RecyclerView;
+import androidx.viewpager.widget.PagerAdapter;
+import androidx.viewpager.widget.ViewPager;
 
 import com.watayouxiang.widgetlibrary.R;
 
@@ -99,8 +101,8 @@ public class TaoTabLayoutAdapter extends RecyclerView.Adapter<TaoTabLayoutAdapte
         mData.clear();
         mData.addAll(data);
         mSelectIndex = mDefaultSelectIndex;
-        smoothSelectItemToCenter();
         notifyDataSetChanged();
+        smoothSelectItemToCenter();
     }
 
     /**
@@ -115,14 +117,52 @@ public class TaoTabLayoutAdapter extends RecyclerView.Adapter<TaoTabLayoutAdapte
     /**
      * 选中某个itemView
      *
-     * @param index 位置
+     * @param position 位置
      */
-    public void setCurrentItem(int index) {
-        if (index >= 0 && index < mData.size()) {
-            mSelectIndex = index;
-            smoothSelectItemToCenter();
+    public void setCurrentItem(int position) {
+        if (position >= 0 && position < mData.size()) {
+            mSelectIndex = position;
             notifyDataSetChanged();
+            smoothSelectItemToCenter();
         }
+    }
+
+    /**
+     * 搭配ViewPager
+     *
+     * @param viewPager ViewPager
+     */
+    public void setViewPager(final ViewPager viewPager) {
+        //容错处理
+        if (viewPager == null) return;
+        PagerAdapter viewPagerAdapter = viewPager.getAdapter();
+        if (viewPagerAdapter == null) return;
+
+        //设置联动
+        viewPager.addOnPageChangeListener(new ViewPager.SimpleOnPageChangeListener() {
+            @Override
+            public void onPageSelected(int position) {
+                super.onPageSelected(position);
+                TaoTabLayoutAdapter.this.setCurrentItem(position);
+            }
+        });
+        TaoTabLayoutAdapter.this.setOnItemClickListener(new OnItemClickListener() {
+            @Override
+            public boolean onItemClick(TaoTabLayoutAdapter adapter, View view, int position) {
+                viewPager.setCurrentItem(position);
+                return true;
+            }
+        });
+
+        //设置数据
+        ArrayList<String> titleArr = new ArrayList<>();
+        for (int i = 0; i < viewPagerAdapter.getCount(); i++) {
+            String pageTitle = (String) viewPagerAdapter.getPageTitle(i);
+            if (pageTitle != null) {
+                titleArr.add(pageTitle);
+            }
+        }
+        TaoTabLayoutAdapter.this.setNewData(titleArr);
     }
 
     // ============================================================================
