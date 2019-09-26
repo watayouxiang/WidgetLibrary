@@ -10,6 +10,7 @@ import androidx.viewpager.widget.ViewPager;
 import com.watayouxiang.demoshell.DemoActivity;
 import com.watayouxiang.demoshell.ListData;
 import com.watayouxiang.widgetlibdemo.R;
+import com.watayouxiang.widgetlibrary.tablayout.BaseTabLayoutAdapter;
 import com.watayouxiang.widgetlibrary.tablayout.TaoTabLayoutAdapter;
 
 import java.util.ArrayList;
@@ -66,9 +67,9 @@ public class TabLayoutActivity extends DemoActivity {
         RecyclerView tabLayout = findViewById(R.id.rv_tabLayout);
         tabLayoutAdapter = new TaoTabLayoutAdapter(this, tabLayout);
         tabLayoutAdapter.setNewData(getTestData());
-        tabLayoutAdapter.setOnItemClickListener(new TaoTabLayoutAdapter.OnItemClickListener() {
+        tabLayoutAdapter.setOnItemClickListener(new BaseTabLayoutAdapter.OnItemClickListener() {
             @Override
-            public boolean onItemClick(TaoTabLayoutAdapter adapter, View view, int position) {
+            public boolean onItemClick(BaseTabLayoutAdapter adapter, View view, int position) {
                 String text = adapter.getData().get(position);
                 Toast.makeText(view.getContext(), text, Toast.LENGTH_SHORT).show();
                 return true;
