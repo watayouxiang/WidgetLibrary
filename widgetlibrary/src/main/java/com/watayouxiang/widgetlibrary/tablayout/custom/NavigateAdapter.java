@@ -1,4 +1,4 @@
-package com.watayouxiang.widgetlibrary.tablayout;
+package com.watayouxiang.widgetlibrary.tablayout.custom;
 
 import android.content.Context;
 import android.graphics.Color;
@@ -11,6 +11,8 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.watayouxiang.widgetlibrary.R;
+import com.watayouxiang.widgetlibrary.tablayout.TaoTabLayoutAdapter;
+import com.watayouxiang.widgetlibrary.tablayout.TaoViewHolder;
 
 public class NavigateAdapter extends TaoTabLayoutAdapter {
     public NavigateAdapter(Context context, RecyclerView recyclerView) {
@@ -19,7 +21,7 @@ public class NavigateAdapter extends TaoTabLayoutAdapter {
 
     @Override
     protected int getItemViewLayoutId() {
-        return R.layout.view_tablayout_item;
+        return R.layout.view_tablayout_navigate;
     }
 
     @Override

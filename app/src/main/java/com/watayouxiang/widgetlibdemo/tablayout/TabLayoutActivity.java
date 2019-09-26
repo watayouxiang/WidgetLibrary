@@ -11,7 +11,7 @@ import com.watayouxiang.demoshell.DemoActivity;
 import com.watayouxiang.demoshell.ListData;
 import com.watayouxiang.widgetlibdemo.R;
 import com.watayouxiang.widgetlibrary.tablayout.TaoOnItemClickListener;
-import com.watayouxiang.widgetlibrary.tablayout.NavigateAdapter;
+import com.watayouxiang.widgetlibrary.tablayout.custom.NavigateAdapter;
 import com.watayouxiang.widgetlibrary.tablayout.TaoViewHolder;
 
 import java.util.ArrayList;
