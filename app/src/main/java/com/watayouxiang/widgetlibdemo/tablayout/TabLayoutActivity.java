@@ -11,14 +11,14 @@ import com.watayouxiang.demoshell.DemoActivity;
 import com.watayouxiang.demoshell.ListData;
 import com.watayouxiang.widgetlibdemo.R;
 import com.watayouxiang.widgetlibrary.tablayout.TaoOnItemClickListener;
-import com.watayouxiang.widgetlibrary.tablayout.TaoTabLayoutAdapter;
+import com.watayouxiang.widgetlibrary.tablayout.NavigateAdapter;
 import com.watayouxiang.widgetlibrary.tablayout.TaoViewHolder;
 
 import java.util.ArrayList;
 import java.util.List;
 
 public class TabLayoutActivity extends DemoActivity {
-    private TaoTabLayoutAdapter tabLayoutAdapter;
+    private NavigateAdapter tabLayoutAdapter;
 
     @Override
     protected int getHolderViewId() {
@@ -60,13 +60,13 @@ public class TabLayoutActivity extends DemoActivity {
         RecyclerView tabLayout = findViewById(R.id.rv_tabLayout2);
         ViewPager viewPager = findViewById(R.id.viewPager2);
         viewPager.setAdapter(new VpAdapter(getSupportFragmentManager()));
-        TaoTabLayoutAdapter tabLayoutAdapter2 = new TaoTabLayoutAdapter(this, tabLayout);
+        NavigateAdapter tabLayoutAdapter2 = new NavigateAdapter(this, tabLayout);
         tabLayoutAdapter2.setViewPager(viewPager);
     }
 
     private void initTabLayout() {
         RecyclerView tabLayout = findViewById(R.id.rv_tabLayout);
-        tabLayoutAdapter = new TaoTabLayoutAdapter(this, tabLayout);
+        tabLayoutAdapter = new NavigateAdapter(this, tabLayout);
         tabLayoutAdapter.setNewData(getTestData());
         tabLayoutAdapter.setOnItemClickListener(new TaoOnItemClickListener() {
             @Override
