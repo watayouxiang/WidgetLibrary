@@ -12,7 +12,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.watayouxiang.widgetlibrary.R;
 
-public class TaoTabLayoutAdapter extends BaseTabLayoutAdapter {
+public class TaoTabLayoutAdapter extends TabLayoutAdapter {
     public TaoTabLayoutAdapter(Context context, RecyclerView recyclerView) {
         super(context, recyclerView);
     }

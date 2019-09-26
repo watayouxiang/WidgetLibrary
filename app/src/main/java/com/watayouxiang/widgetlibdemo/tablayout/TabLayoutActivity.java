@@ -10,8 +10,9 @@ import androidx.viewpager.widget.ViewPager;
 import com.watayouxiang.demoshell.DemoActivity;
 import com.watayouxiang.demoshell.ListData;
 import com.watayouxiang.widgetlibdemo.R;
-import com.watayouxiang.widgetlibrary.tablayout.BaseTabLayoutAdapter;
+import com.watayouxiang.widgetlibrary.tablayout.TaoOnItemClickListener;
 import com.watayouxiang.widgetlibrary.tablayout.TaoTabLayoutAdapter;
+import com.watayouxiang.widgetlibrary.tablayout.TaoViewHolder;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -67,11 +68,11 @@ public class TabLayoutActivity extends DemoActivity {
         RecyclerView tabLayout = findViewById(R.id.rv_tabLayout);
         tabLayoutAdapter = new TaoTabLayoutAdapter(this, tabLayout);
         tabLayoutAdapter.setNewData(getTestData());
-        tabLayoutAdapter.setOnItemClickListener(new BaseTabLayoutAdapter.OnItemClickListener() {
+        tabLayoutAdapter.setOnItemClickListener(new TaoOnItemClickListener() {
             @Override
-            public boolean onItemClick(BaseTabLayoutAdapter adapter, View view, int position) {
-                String text = adapter.getData().get(position);
-                Toast.makeText(view.getContext(), text, Toast.LENGTH_SHORT).show();
+            public boolean onItemClick(TaoViewHolder viewHolder) {
+                String text = tabLayoutAdapter.getData().get(viewHolder.getLayoutPosition());
+                Toast.makeText(viewHolder.itemView.getContext(), text, Toast.LENGTH_SHORT).show();
                 return true;
             }
         });

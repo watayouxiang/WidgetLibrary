@@ -14,15 +14,15 @@ import androidx.viewpager.widget.ViewPager;
 import java.util.ArrayList;
 import java.util.List;
 
-public abstract class BaseTabLayoutAdapter extends RecyclerView.Adapter<BaseTabLayoutAdapter.TaoViewHolder> {
+abstract class TabLayoutAdapter extends RecyclerView.Adapter<TaoViewHolder> {
     private final List<String> mData = new ArrayList<>();
     private final LayoutManager mLayoutManager;
     private final RecyclerView mRecyclerView;
-    private OnItemClickListener mOnItemClickListener;
+    private TaoOnItemClickListener mOnItemClickListener;
     private final static int mDefaultSelectIndex = 0;
     private int mSelectIndex = mDefaultSelectIndex;
 
-    BaseTabLayoutAdapter(Context context, RecyclerView recyclerView) {
+    TabLayoutAdapter(Context context, RecyclerView recyclerView) {
         mRecyclerView = recyclerView;
         mLayoutManager = new LayoutManager(context, 1, RecyclerView.HORIZONTAL, false);
         recyclerView.setLayoutManager(mLayoutManager);
@@ -78,7 +78,7 @@ public abstract class BaseTabLayoutAdapter extends RecyclerView.Adapter<BaseTabL
             viewHolder.itemView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    if (mOnItemClickListener.onItemClick(BaseTabLayoutAdapter.this, v, viewHolder.getLayoutPosition())) {
+                    if (mOnItemClickListener.onItemClick(viewHolder)) {
                         setCurrentItem(viewHolder.getLayoutPosition());
                     }
                 }
@@ -118,7 +118,7 @@ public abstract class BaseTabLayoutAdapter extends RecyclerView.Adapter<BaseTabL
      *
      * @param listener 点击监听
      */
-    public void setOnItemClickListener(@Nullable OnItemClickListener listener) {
+    public void setOnItemClickListener(@Nullable TaoOnItemClickListener listener) {
         mOnItemClickListener = listener;
     }
 
@@ -151,13 +151,13 @@ public abstract class BaseTabLayoutAdapter extends RecyclerView.Adapter<BaseTabL
             @Override
             public void onPageSelected(int position) {
                 super.onPageSelected(position);
-                BaseTabLayoutAdapter.this.setCurrentItem(position);
+                TabLayoutAdapter.this.setCurrentItem(position);
             }
         });
-        BaseTabLayoutAdapter.this.setOnItemClickListener(new BaseTabLayoutAdapter.OnItemClickListener() {
+        TabLayoutAdapter.this.setOnItemClickListener(new TaoOnItemClickListener() {
             @Override
-            public boolean onItemClick(BaseTabLayoutAdapter adapter, View view, int position) {
-                viewPager.setCurrentItem(position);
+            public boolean onItemClick(TaoViewHolder viewHolder) {
+                viewPager.setCurrentItem(viewHolder.getLayoutPosition());
                 return true;
             }
         });
@@ -170,28 +170,6 @@ public abstract class BaseTabLayoutAdapter extends RecyclerView.Adapter<BaseTabL
                 titleArr.add(pageTitle);
             }
         }
-        BaseTabLayoutAdapter.this.setNewData(titleArr);
-    }
-
-    // ============================================================================
-    // class & interface
-    // ============================================================================
-
-    public interface OnItemClickListener {
-        /**
-         * itemView 点击事件
-         *
-         * @param adapter  适配器
-         * @param view     itemView
-         * @param position 位置
-         * @return 是否选中
-         */
-        boolean onItemClick(BaseTabLayoutAdapter adapter, View view, int position);
-    }
-
-    class TaoViewHolder extends RecyclerView.ViewHolder {
-        private TaoViewHolder(@NonNull View itemView) {
-            super(itemView);
-        }
+        TabLayoutAdapter.this.setNewData(titleArr);
     }
 }
