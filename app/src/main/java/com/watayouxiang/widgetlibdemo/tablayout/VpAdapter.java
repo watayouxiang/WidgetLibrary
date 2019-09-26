@@ -10,11 +10,11 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
-class TestVpAdapter extends FragmentPagerAdapter {
+class VpAdapter extends FragmentPagerAdapter {
     private List<String> titles;
     private List<TestFragment> fragments;
 
-    TestVpAdapter(@NonNull FragmentManager fm) {
+    VpAdapter(@NonNull FragmentManager fm) {
         super(fm);
         titles = Arrays.asList(
                 "电视剧", "电影", "儿童", "综艺", "动漫",

@@ -59,7 +59,7 @@ public class TabLayoutActivity extends DemoActivity {
     private void initTabLayout2() {
         RecyclerView tabLayout = findViewById(R.id.rv_tabLayout2);
         ViewPager viewPager = findViewById(R.id.viewPager2);
-        viewPager.setAdapter(new TestVpAdapter(getSupportFragmentManager()));
+        viewPager.setAdapter(new VpAdapter(getSupportFragmentManager()));
         TaoTabLayoutAdapter tabLayoutAdapter2 = new TaoTabLayoutAdapter(this, tabLayout);
         tabLayoutAdapter2.setViewPager(viewPager);
     }
