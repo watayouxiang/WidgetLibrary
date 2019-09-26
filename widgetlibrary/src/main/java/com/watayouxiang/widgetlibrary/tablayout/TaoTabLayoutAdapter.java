@@ -76,9 +76,8 @@ public class TaoTabLayoutAdapter extends RecyclerView.Adapter<TaoTabLayoutAdapte
         }
     }
 
-    private void notifyDataChanged() {
+    private void smoothSelectItemToCenter() {
         mLayoutManager.smoothScrollToPosition(mRecyclerView, new RecyclerView.State(), mSelectIndex);
-        notifyDataSetChanged();
     }
 
     // ============================================================================
@@ -100,7 +99,8 @@ public class TaoTabLayoutAdapter extends RecyclerView.Adapter<TaoTabLayoutAdapte
         mData.clear();
         mData.addAll(data);
         mSelectIndex = mDefaultSelectIndex;
-        notifyDataChanged();
+        smoothSelectItemToCenter();
+        notifyDataSetChanged();
     }
 
     /**
@@ -120,7 +120,8 @@ public class TaoTabLayoutAdapter extends RecyclerView.Adapter<TaoTabLayoutAdapte
     public void setCurrentItem(int index) {
         if (index >= 0 && index < mData.size()) {
             mSelectIndex = index;
-            notifyDataChanged();
+            smoothSelectItemToCenter();
+            notifyDataSetChanged();
         }
     }
 
