@@ -11,17 +11,17 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.watayouxiang.widgetlibrary.R;
-import com.watayouxiang.widgetlibrary.tablayout.TaoTabLayoutAdapter;
+import com.watayouxiang.widgetlibrary.tablayout.TaoTabAdapter;
 import com.watayouxiang.widgetlibrary.tablayout.TaoViewHolder;
 
-public class NavigateAdapter extends TaoTabLayoutAdapter {
-    public NavigateAdapter(Context context, RecyclerView recyclerView) {
+public class NavigateTabAdapter extends TaoTabAdapter {
+    public NavigateTabAdapter(Context context, RecyclerView recyclerView) {
         super(context, recyclerView);
     }
 
     @Override
     protected int getItemViewLayoutId() {
-        return R.layout.view_tablayout_navigate;
+        return R.layout.tab_navigate;
     }
 
     @Override

@@ -14,7 +14,7 @@ import androidx.viewpager.widget.ViewPager;
 import java.util.ArrayList;
 import java.util.List;
 
-public abstract class TaoTabLayoutAdapter extends RecyclerView.Adapter<TaoViewHolder> {
+public abstract class TaoTabAdapter extends RecyclerView.Adapter<TaoViewHolder> {
     private final List<String> mData = new ArrayList<>();
     private final LayoutManager mLayoutManager;
     private final RecyclerView mRecyclerView;
@@ -22,7 +22,7 @@ public abstract class TaoTabLayoutAdapter extends RecyclerView.Adapter<TaoViewHo
     private final static int mDefaultSelectIndex = 0;
     private int mSelectIndex = mDefaultSelectIndex;
 
-    public TaoTabLayoutAdapter(Context context, RecyclerView recyclerView) {
+    public TaoTabAdapter(Context context, RecyclerView recyclerView) {
         mRecyclerView = recyclerView;
         mLayoutManager = new LayoutManager(context, 1, RecyclerView.HORIZONTAL, false);
         recyclerView.setLayoutManager(mLayoutManager);
@@ -151,10 +151,10 @@ public abstract class TaoTabLayoutAdapter extends RecyclerView.Adapter<TaoViewHo
             @Override
             public void onPageSelected(int position) {
                 super.onPageSelected(position);
-                TaoTabLayoutAdapter.this.setCurrentItem(position);
+                TaoTabAdapter.this.setCurrentItem(position);
             }
         });
-        TaoTabLayoutAdapter.this.setOnItemClickListener(new TaoOnItemClickListener() {
+        TaoTabAdapter.this.setOnItemClickListener(new TaoOnItemClickListener() {
             @Override
             public boolean onItemClick(TaoViewHolder viewHolder) {
                 viewPager.setCurrentItem(viewHolder.getLayoutPosition());
@@ -170,6 +170,6 @@ public abstract class TaoTabLayoutAdapter extends RecyclerView.Adapter<TaoViewHo
                 titleArr.add(pageTitle);
             }
         }
-        TaoTabLayoutAdapter.this.setNewData(titleArr);
+        TaoTabAdapter.this.setNewData(titleArr);
     }
 }
