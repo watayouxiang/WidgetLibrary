@@ -21,6 +21,7 @@ import java.util.List;
 
 public class TabActivity extends DemoActivity {
     private ViewPager viewPager;
+    private VpAdapter vpAdapter;
     private RecyclerView tabLayout;
     private RecyclerView tabLayout2;
     private RecyclerView tabLayout3;
@@ -59,10 +60,10 @@ public class TabActivity extends DemoActivity {
                 .addClick("选中最后一个", new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-                        tabAdapter.setCurrentItem(tabAdapter.getData().size() - 1);
-                        tabAdapter2.setCurrentItem(tabAdapter.getData().size() - 1);
-                        tabAdapter3.setCurrentItem(tabAdapter.getData().size() - 1);
-                        tabAdapter4.setCurrentItem(tabAdapter.getData().size() - 1);
+                        tabAdapter.setCurrentItem(tabAdapter.getItemCount() - 1);
+                        tabAdapter2.setCurrentItem(tabAdapter2.getItemCount() - 1);
+                        tabAdapter3.setCurrentItem(tabAdapter3.getItemCount() - 1);
+                        tabAdapter4.setCurrentItem(tabAdapter4.getItemCount() - 1);
                     }
                 })
                 ;
@@ -83,7 +84,7 @@ public class TabActivity extends DemoActivity {
     }
 
     private void initTabLayout4() {
-        viewPager.setAdapter(new VpAdapter(getSupportFragmentManager(), getTestData()));
+        viewPager.setAdapter(vpAdapter = new VpAdapter(getSupportFragmentManager(), getTestData()));
         tabAdapter4 = new FilterTabAdapter(tabLayout4);
         tabAdapter4.setViewPager(viewPager);
     }
