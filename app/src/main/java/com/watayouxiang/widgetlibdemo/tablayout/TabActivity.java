@@ -20,12 +20,15 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class TabActivity extends DemoActivity {
-    private NavigateTabAdapter mTabAdapter;
+    private ViewPager viewPager;
     private RecyclerView tabLayout;
     private RecyclerView tabLayout2;
     private RecyclerView tabLayout3;
     private RecyclerView tabLayout4;
-    private ViewPager viewPager;
+    private NavigateTabAdapter tabAdapter;
+    private NavigateTabAdapter tabAdapter2;
+    private CategoryTabAdapter tabAdapter3;
+    private FilterTabAdapter tabAdapter4;
 
     @Override
     protected int getHolderViewId() {
@@ -38,19 +41,28 @@ public class TabActivity extends DemoActivity {
                 .addClick("清空数据", new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-                        mTabAdapter.setNewData(null);
+                        tabAdapter.setNewData(null);
+                        tabAdapter2.setNewData(null);
+                        tabAdapter3.setNewData(null);
+                        tabAdapter4.setNewData(null);
                     }
                 })
-                .addClick("设置数据", new View.OnClickListener() {
+                .addClick("设置新数据", new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-                        mTabAdapter.setNewData(getTestData());
+                        tabAdapter.setNewData(getTestData());
+                        tabAdapter2.setNewData(getTestData());
+                        tabAdapter3.setNewData(getTestData());
+                        tabAdapter4.setNewData(getTestData());
                     }
                 })
                 .addClick("选中最后一个", new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-                        mTabAdapter.setCurrentItem(mTabAdapter.getData().size() - 1);
+                        tabAdapter.setCurrentItem(tabAdapter.getData().size() - 1);
+                        tabAdapter2.setCurrentItem(tabAdapter.getData().size() - 1);
+                        tabAdapter3.setCurrentItem(tabAdapter.getData().size() - 1);
+                        tabAdapter4.setCurrentItem(tabAdapter.getData().size() - 1);
                     }
                 })
                 ;
@@ -72,33 +84,33 @@ public class TabActivity extends DemoActivity {
 
     private void initTabLayout4() {
         viewPager.setAdapter(new VpAdapter(getSupportFragmentManager(), getTestData()));
-        FilterTabAdapter tabAdapter = new FilterTabAdapter(tabLayout4);
-        tabAdapter.setViewPager(viewPager);
+        tabAdapter4 = new FilterTabAdapter(tabLayout4);
+        tabAdapter4.setViewPager(viewPager);
     }
 
     private void initTabLayout3() {
         viewPager.setAdapter(new VpAdapter(getSupportFragmentManager(), getTestData()));
-        CategoryTabAdapter tabAdapter = new CategoryTabAdapter(tabLayout3);
-        tabAdapter.setViewPager(viewPager);
+        tabAdapter3 = new CategoryTabAdapter(tabLayout3);
+        tabAdapter3.setViewPager(viewPager);
     }
 
     private void initTabLayout2() {
         viewPager.setAdapter(new VpAdapter(getSupportFragmentManager(), getTestData()));
-        NavigateTabAdapter tabAdapter = new NavigateTabAdapter(tabLayout2);
-        tabAdapter.setViewPager(viewPager);
+        tabAdapter2 = new NavigateTabAdapter(tabLayout2);
+        tabAdapter2.setViewPager(viewPager);
     }
 
     private void initTabLayout() {
-        mTabAdapter = new NavigateTabAdapter(tabLayout);
-        mTabAdapter.setOnItemClickListener(new TaoOnItemClickListener() {
+        tabAdapter = new NavigateTabAdapter(tabLayout);
+        tabAdapter.setOnItemClickListener(new TaoOnItemClickListener() {
             @Override
             public boolean onItemClick(TaoViewHolder viewHolder) {
-                String text = mTabAdapter.getData().get(viewHolder.getLayoutPosition());
+                String text = tabAdapter.getData().get(viewHolder.getLayoutPosition());
                 Toast.makeText(viewHolder.itemView.getContext(), text, Toast.LENGTH_SHORT).show();
                 return true;
             }
         });
-        mTabAdapter.setNewData(getTestData());
+        tabAdapter.setNewData(getTestData());
     }
 
     private List<String> getTestData() {
