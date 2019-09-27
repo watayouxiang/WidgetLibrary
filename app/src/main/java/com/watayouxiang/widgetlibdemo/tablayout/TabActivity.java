@@ -21,7 +21,6 @@ import java.util.List;
 
 public class TabActivity extends DemoActivity {
     private ViewPager viewPager;
-    private VpAdapter vpAdapter;
     private RecyclerView tabLayout;
     private RecyclerView tabLayout2;
     private RecyclerView tabLayout3;
@@ -84,7 +83,7 @@ public class TabActivity extends DemoActivity {
     }
 
     private void initTabLayout4() {
-        viewPager.setAdapter(vpAdapter = new VpAdapter(getSupportFragmentManager(), getTestData()));
+        viewPager.setAdapter(new VpAdapter(getSupportFragmentManager(), getTestData()));
         tabAdapter4 = new FilterTabAdapter(tabLayout4);
         tabAdapter4.setViewPager(viewPager);
     }
