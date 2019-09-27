@@ -20,11 +20,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class TabActivity extends DemoActivity {
-    private ViewPager viewPager;
-    private RecyclerView tabLayout;
-    private RecyclerView tabLayout2;
-    private RecyclerView tabLayout3;
-    private RecyclerView tabLayout4;
     private NavigateTabAdapter tabAdapter;
     private NavigateTabAdapter tabAdapter2;
     private CategoryTabAdapter tabAdapter3;
@@ -71,36 +66,36 @@ public class TabActivity extends DemoActivity {
     @Override
     protected void initData(Bundle savedInstanceState) {
         super.initData(savedInstanceState);
-        tabLayout = findViewById(R.id.rv_tabLayout);
-        tabLayout2 = findViewById(R.id.rv_tabLayout2);
-        tabLayout3 = findViewById(R.id.rv_tabLayout3);
-        tabLayout4 = findViewById(R.id.rv_tabLayout4);
-        viewPager = findViewById(R.id.vp_common);
-        initTabLayout();
-        initTabLayout2();
-        initTabLayout3();
-        initTabLayout4();
+        ViewPager viewPager = findViewById(R.id.vp_common);
+        RecyclerView tabLayout = findViewById(R.id.rv_tabLayout);
+        RecyclerView tabLayout2 = findViewById(R.id.rv_tabLayout2);
+        RecyclerView tabLayout3 = findViewById(R.id.rv_tabLayout3);
+        RecyclerView tabLayout4 = findViewById(R.id.rv_tabLayout4);
+        initTabLayout(tabLayout);
+        initTabLayout2(tabLayout2, viewPager);
+        initTabLayout3(tabLayout3, viewPager);
+        initTabLayout4(tabLayout4, viewPager);
     }
 
-    private void initTabLayout4() {
+    private void initTabLayout4(RecyclerView tabLayout4, ViewPager viewPager) {
         viewPager.setAdapter(new VpAdapter(getSupportFragmentManager(), getTestData()));
         tabAdapter4 = new FilterTabAdapter(tabLayout4);
         tabAdapter4.setViewPager(viewPager);
     }
 
-    private void initTabLayout3() {
+    private void initTabLayout3(RecyclerView tabLayout3, ViewPager viewPager) {
         viewPager.setAdapter(new VpAdapter(getSupportFragmentManager(), getTestData()));
         tabAdapter3 = new CategoryTabAdapter(tabLayout3);
         tabAdapter3.setViewPager(viewPager);
     }
 
-    private void initTabLayout2() {
+    private void initTabLayout2(RecyclerView tabLayout2, ViewPager viewPager) {
         viewPager.setAdapter(new VpAdapter(getSupportFragmentManager(), getTestData()));
         tabAdapter2 = new NavigateTabAdapter(tabLayout2);
         tabAdapter2.setViewPager(viewPager);
     }
 
-    private void initTabLayout() {
+    private void initTabLayout(RecyclerView tabLayout) {
         tabAdapter = new NavigateTabAdapter(tabLayout);
         tabAdapter.setOnItemClickListener(new TaoOnItemClickListener() {
             @Override
