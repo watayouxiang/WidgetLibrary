@@ -1,6 +1,5 @@
 package com.watayouxiang.widgetlibrary.tablayout;
 
-import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -22,9 +21,9 @@ public abstract class TaoTabAdapter extends RecyclerView.Adapter<TaoViewHolder> 
     private final static int mDefaultSelectIndex = 0;
     private int mSelectIndex = mDefaultSelectIndex;
 
-    public TaoTabAdapter(Context context, RecyclerView recyclerView) {
+    public TaoTabAdapter(@NonNull RecyclerView recyclerView) {
         mRecyclerView = recyclerView;
-        mLayoutManager = new LayoutManager(context, 1, RecyclerView.HORIZONTAL, false);
+        mLayoutManager = new LayoutManager(recyclerView.getContext(), 1, RecyclerView.HORIZONTAL, false);
         recyclerView.setLayoutManager(mLayoutManager);
         recyclerView.setAdapter(this);
     }

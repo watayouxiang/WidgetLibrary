@@ -1,6 +1,5 @@
 package com.watayouxiang.widgetlibrary.tablayout.custom;
 
-import android.content.Context;
 import android.graphics.Color;
 import android.graphics.Typeface;
 import android.util.TypedValue;
@@ -15,8 +14,8 @@ import com.watayouxiang.widgetlibrary.tablayout.TaoTabAdapter;
 import com.watayouxiang.widgetlibrary.tablayout.TaoViewHolder;
 
 public class NavigateTabAdapter extends TaoTabAdapter {
-    public NavigateTabAdapter(Context context, RecyclerView recyclerView) {
-        super(context, recyclerView);
+    public NavigateTabAdapter(@NonNull RecyclerView recyclerView) {
+        super(recyclerView);
     }
 
     @Override

@@ -1,6 +1,5 @@
 package com.watayouxiang.widgetlibrary.tablayout.custom;
 
-import android.content.Context;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -11,8 +10,8 @@ import com.watayouxiang.widgetlibrary.tablayout.TaoTabAdapter;
 import com.watayouxiang.widgetlibrary.tablayout.TaoViewHolder;
 
 public class CategoryTabAdapter extends TaoTabAdapter {
-    public CategoryTabAdapter(Context context, RecyclerView recyclerView) {
-        super(context, recyclerView);
+    public CategoryTabAdapter(@NonNull RecyclerView recyclerView) {
+        super(recyclerView);
     }
 
     @Override

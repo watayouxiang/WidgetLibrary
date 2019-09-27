@@ -7,7 +7,7 @@ import android.widget.Toast;
 
 import com.watayouxiang.demoshell.ListActivity;
 import com.watayouxiang.demoshell.ListData;
-import com.watayouxiang.widgetlibdemo.tablayout.TabLayoutActivity;
+import com.watayouxiang.widgetlibdemo.tablayout.TabActivity;
 import com.watayouxiang.widgetlibrary.IOSPhotoDialog;
 
 public class MainActivity extends ListActivity {
@@ -32,7 +32,7 @@ public class MainActivity extends ListActivity {
                 })
                 .addActivity(this, "翻滚式公告", NoticeFlipperActivity.class)
                 .addActivity(this, "短信验证码控件", SMSCodeViewActivity.class)
-                .addActivity(this, "TabLayout控件", TabLayoutActivity.class)
+                .addActivity(this, "Tab控件", TabActivity.class)
                 ;
     }
 
