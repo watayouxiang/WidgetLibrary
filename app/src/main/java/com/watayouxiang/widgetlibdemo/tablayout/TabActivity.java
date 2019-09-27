@@ -77,26 +77,26 @@ public class TabActivity extends DemoActivity {
         initTabLayout4(tabLayout4, viewPager);
     }
 
-    private void initTabLayout4(RecyclerView tabLayout4, ViewPager viewPager) {
+    private void initTabLayout4(RecyclerView recyclerView, ViewPager viewPager) {
         viewPager.setAdapter(new VpAdapter(getSupportFragmentManager(), getTestData()));
-        tabAdapter4 = new FilterTabAdapter(tabLayout4);
+        tabAdapter4 = new FilterTabAdapter(recyclerView);
         tabAdapter4.setViewPager(viewPager);
     }
 
-    private void initTabLayout3(RecyclerView tabLayout3, ViewPager viewPager) {
+    private void initTabLayout3(RecyclerView recyclerView, ViewPager viewPager) {
         viewPager.setAdapter(new VpAdapter(getSupportFragmentManager(), getTestData()));
-        tabAdapter3 = new CategoryTabAdapter(tabLayout3);
+        tabAdapter3 = new CategoryTabAdapter(recyclerView);
         tabAdapter3.setViewPager(viewPager);
     }
 
-    private void initTabLayout2(RecyclerView tabLayout2, ViewPager viewPager) {
+    private void initTabLayout2(RecyclerView recyclerView, ViewPager viewPager) {
         viewPager.setAdapter(new VpAdapter(getSupportFragmentManager(), getTestData()));
-        tabAdapter2 = new NavigateTabAdapter(tabLayout2);
+        tabAdapter2 = new NavigateTabAdapter(recyclerView);
         tabAdapter2.setViewPager(viewPager);
     }
 
-    private void initTabLayout(RecyclerView tabLayout) {
-        tabAdapter = new NavigateTabAdapter(tabLayout);
+    private void initTabLayout(RecyclerView recyclerView) {
+        tabAdapter = new NavigateTabAdapter(recyclerView);
         tabAdapter.setOnItemClickListener(new TaoOnItemClickListener() {
             @Override
             public boolean onItemClick(TaoViewHolder viewHolder) {
