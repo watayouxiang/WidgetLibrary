@@ -8,16 +8,16 @@ import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.LinearSmoothScroller;
 import androidx.recyclerview.widget.RecyclerView;
 
-class LayoutManager extends GridLayoutManager {
-    public LayoutManager(Context context, AttributeSet attrs, int defStyleAttr, int defStyleRes) {
+class TaoLayoutManager extends GridLayoutManager {
+    public TaoLayoutManager(Context context, AttributeSet attrs, int defStyleAttr, int defStyleRes) {
         super(context, attrs, defStyleAttr, defStyleRes);
     }
 
-    public LayoutManager(Context context, int spanCount) {
+    public TaoLayoutManager(Context context, int spanCount) {
         super(context, spanCount);
     }
 
-    public LayoutManager(Context context, int spanCount, int orientation, boolean reverseLayout) {
+    public TaoLayoutManager(Context context, int spanCount, int orientation, boolean reverseLayout) {
         super(context, spanCount, orientation, reverseLayout);
     }
 
