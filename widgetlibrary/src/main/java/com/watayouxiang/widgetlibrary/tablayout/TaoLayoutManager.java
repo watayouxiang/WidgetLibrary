@@ -8,7 +8,7 @@ import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.LinearSmoothScroller;
 import androidx.recyclerview.widget.RecyclerView;
 
-class TaoLayoutManager extends GridLayoutManager {
+public class TaoLayoutManager extends GridLayoutManager {
     public TaoLayoutManager(Context context, AttributeSet attrs, int defStyleAttr, int defStyleRes) {
         super(context, attrs, defStyleAttr, defStyleRes);
     }
@@ -22,11 +22,11 @@ class TaoLayoutManager extends GridLayoutManager {
     }
 
     /**
-     * 滚动到中间位置
+     * 将指定位置的itemView滚动到中间
      *
      * @param recyclerView RecyclerView
      * @param state        {@link RecyclerView.State}
-     * @param position     position
+     * @param position     position 位置
      */
     @Override
     public void smoothScrollToPosition(RecyclerView recyclerView, RecyclerView.State state, int position) {

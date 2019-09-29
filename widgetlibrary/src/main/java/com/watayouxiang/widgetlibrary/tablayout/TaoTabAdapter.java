@@ -18,13 +18,11 @@ public abstract class TaoTabAdapter extends RecyclerView.Adapter<TaoViewHolder> 
     private final TaoLayoutManager mLayoutManager;
     private final RecyclerView mRecyclerView;
     private TaoOnItemClickListener mOnItemClickListener;
-    private final static int mDefaultSelectIndex = 0;
-    private int mSelectIndex = mDefaultSelectIndex;
+    private int mSelectPosition;
 
     public TaoTabAdapter(@NonNull RecyclerView recyclerView) {
         mRecyclerView = recyclerView;
-        mLayoutManager = new TaoLayoutManager(recyclerView.getContext(), 1, RecyclerView.HORIZONTAL, false);
-        recyclerView.setLayoutManager(mLayoutManager);
+        recyclerView.setLayoutManager(mLayoutManager = getLayoutManager(recyclerView));
         recyclerView.setAdapter(this);
     }
 
@@ -39,7 +37,7 @@ public abstract class TaoTabAdapter extends RecyclerView.Adapter<TaoViewHolder> 
 
     @Override
     public void onBindViewHolder(@NonNull TaoViewHolder holder, int position) {
-        convert(holder, getData().get(position), position == mSelectIndex);
+        convert(holder, getData().get(position), position == mSelectPosition);
     }
 
     @Override
@@ -67,6 +65,26 @@ public abstract class TaoTabAdapter extends RecyclerView.Adapter<TaoViewHolder> 
      */
     protected abstract void convert(@NonNull TaoViewHolder holder, String text, boolean select);
 
+    /**
+     * 获取默认选中的位置
+     *
+     * @param data 数据
+     * @return 默认选中的位置
+     */
+    protected int getDefaultSelectPosition(@NonNull List<String> data) {
+        return 0;
+    }
+
+    /**
+     * 获取布局管理器
+     *
+     * @param recyclerView RecyclerView
+     * @return 布局管理器 {@link TaoLayoutManager}
+     */
+    protected TaoLayoutManager getLayoutManager(RecyclerView recyclerView) {
+        return new TaoLayoutManager(recyclerView.getContext(), 1, RecyclerView.HORIZONTAL, false);
+    }
+
     // ============================================================================
     // private method
     // ============================================================================
@@ -86,8 +104,8 @@ public abstract class TaoTabAdapter extends RecyclerView.Adapter<TaoViewHolder> 
     }
 
     private void smoothSelectItemToCenter() {
-        if (mSelectIndex >= 0 && mSelectIndex < getItemCount()) {
-            mLayoutManager.smoothScrollToPosition(mRecyclerView, new RecyclerView.State(), mSelectIndex);
+        if (mSelectPosition >= 0 && mSelectPosition < getItemCount()) {
+            mLayoutManager.smoothScrollToPosition(mRecyclerView, new RecyclerView.State(), mSelectPosition);
         }
     }
 
@@ -109,7 +127,7 @@ public abstract class TaoTabAdapter extends RecyclerView.Adapter<TaoViewHolder> 
         if (data == null) data = new ArrayList<>();
         mData.clear();
         mData.addAll(data);
-        mSelectIndex = mDefaultSelectIndex;
+        mSelectPosition = getDefaultSelectPosition(mData);
         notifyDataSetChanged();
         smoothSelectItemToCenter();
     }
@@ -130,7 +148,7 @@ public abstract class TaoTabAdapter extends RecyclerView.Adapter<TaoViewHolder> 
      */
     public void setCurrentItem(int position) {
         if (position >= 0 && position < getItemCount()) {
-            mSelectIndex = position;
+            mSelectPosition = position;
             notifyDataSetChanged();
             smoothSelectItemToCenter();
         }
