@@ -81,7 +81,7 @@ public abstract class TaoTabAdapter extends RecyclerView.Adapter<TaoViewHolder> 
      * @param recyclerView RecyclerView
      * @return 布局管理器 {@link TaoLayoutManager}
      */
-    protected TaoLayoutManager getLayoutManager(RecyclerView recyclerView) {
+    protected TaoLayoutManager getLayoutManager(@NonNull RecyclerView recyclerView) {
         return new TaoLayoutManager(recyclerView.getContext(), 1, RecyclerView.HORIZONTAL, false);
     }
 
