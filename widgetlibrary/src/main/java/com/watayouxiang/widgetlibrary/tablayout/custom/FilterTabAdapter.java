@@ -29,4 +29,9 @@ public class FilterTabAdapter extends TaoTabAdapter {
         tv_txt.setSelected(select);
         iv_arrow.setVisibility(select ? View.VISIBLE : View.GONE);
     }
+
+    @Override
+    protected boolean getReverseLayout() {
+        return true;
+    }
 }

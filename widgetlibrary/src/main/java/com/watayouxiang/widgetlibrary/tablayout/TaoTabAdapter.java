@@ -23,7 +23,7 @@ public abstract class TaoTabAdapter extends RecyclerView.Adapter<TaoViewHolder> 
 
     public TaoTabAdapter(@NonNull RecyclerView recyclerView) {
         mRecyclerView = recyclerView;
-        mLayoutManager = new LayoutManager(recyclerView.getContext(), 1, RecyclerView.HORIZONTAL, false);
+        mLayoutManager = new LayoutManager(recyclerView.getContext(), 1, RecyclerView.HORIZONTAL, getReverseLayout());
         recyclerView.setLayoutManager(mLayoutManager);
         recyclerView.setAdapter(this);
     }
@@ -66,6 +66,15 @@ public abstract class TaoTabAdapter extends RecyclerView.Adapter<TaoViewHolder> 
      * @param select 是否被选中
      */
     protected abstract void convert(@NonNull TaoViewHolder holder, String text, boolean select);
+
+    /**
+     * 是否反转布局
+     *
+     * @return false从左到右；true从右到左
+     */
+    protected boolean getReverseLayout() {
+        return false;
+    }
 
     // ============================================================================
     // private method

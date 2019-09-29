@@ -25,4 +25,9 @@ public class CategoryTabAdapter extends TaoTabAdapter {
         tv_txt.setText(String.valueOf(text));
         tv_txt.setSelected(select);
     }
+
+    @Override
+    protected boolean getReverseLayout() {
+        return true;
+    }
 }
