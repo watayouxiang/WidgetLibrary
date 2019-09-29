@@ -66,47 +66,52 @@ public class TabActivity extends DemoActivity {
         RecyclerView tabLayout2 = findViewById(R.id.rv_tabLayout2);
         RecyclerView tabLayout3 = findViewById(R.id.rv_tabLayout3);
         RecyclerView tabLayout4 = findViewById(R.id.rv_tabLayout4);
-        initNavigateTabAdapter(tabLayout2, viewPager);
-        initCategoryTabAdapter(tabLayout3);
-        initFilterTabAdapter(tabLayout4);
+        navigateTabAdapter = initNavigateTabAdapter(tabLayout2, viewPager);
+        categoryTabAdapter = initCategoryTabAdapter(tabLayout3);
+        filterTabAdapter = initFilterTabAdapter(tabLayout4);
     }
 
-    private void initFilterTabAdapter(RecyclerView recyclerView) {
-        filterTabAdapter = new FilterTabAdapter(recyclerView);
+    private FilterTabAdapter initFilterTabAdapter(RecyclerView recyclerView) {
+        final FilterTabAdapter filterTabAdapter = new FilterTabAdapter(recyclerView);
         filterTabAdapter.setNewData(getFilterData());
         filterTabAdapter.setOnItemClickListener(new TaoOnItemClickListener() {
             @Override
             public boolean onItemClick(TaoViewHolder viewHolder) {
+                int position = viewHolder.getLayoutPosition();
                 Toast.makeText(
                         viewHolder.itemView.getContext(),
-                        filterTabAdapter.getData().get(viewHolder.getLayoutPosition()),
+                        filterTabAdapter.getData().get(position) + ", " + position,
                         Toast.LENGTH_SHORT
                 ).show();
                 return true;
             }
         });
+        return filterTabAdapter;
     }
 
-    private void initCategoryTabAdapter(RecyclerView recyclerView) {
-        categoryTabAdapter = new CategoryTabAdapter(recyclerView);
+    private CategoryTabAdapter initCategoryTabAdapter(RecyclerView recyclerView) {
+        final CategoryTabAdapter categoryTabAdapter = new CategoryTabAdapter(recyclerView);
         categoryTabAdapter.setNewData(getCategoryData());
         categoryTabAdapter.setOnItemClickListener(new TaoOnItemClickListener() {
             @Override
             public boolean onItemClick(TaoViewHolder viewHolder) {
+                int position = viewHolder.getLayoutPosition();
                 Toast.makeText(
                         viewHolder.itemView.getContext(),
-                        categoryTabAdapter.getData().get(viewHolder.getLayoutPosition()),
+                        categoryTabAdapter.getData().get(position) + ", " + position,
                         Toast.LENGTH_SHORT
                 ).show();
                 return true;
             }
         });
+        return categoryTabAdapter;
     }
 
-    private void initNavigateTabAdapter(RecyclerView recyclerView, ViewPager viewPager) {
+    private NavigateTabAdapter initNavigateTabAdapter(RecyclerView recyclerView, ViewPager viewPager) {
         viewPager.setAdapter(new VpAdapter(getSupportFragmentManager(), getNavigateData()));
-        navigateTabAdapter = new NavigateTabAdapter(recyclerView);
+        NavigateTabAdapter navigateTabAdapter = new NavigateTabAdapter(recyclerView);
         navigateTabAdapter.setViewPager(viewPager);
+        return navigateTabAdapter;
     }
 
     private List<String> getNavigateData() {
