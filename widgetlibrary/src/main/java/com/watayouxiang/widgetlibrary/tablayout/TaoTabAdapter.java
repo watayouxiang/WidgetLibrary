@@ -37,7 +37,7 @@ public abstract class TaoTabAdapter extends RecyclerView.Adapter<TaoViewHolder> 
 
     @Override
     public void onBindViewHolder(@NonNull TaoViewHolder holder, int position) {
-        convert(holder, getData().get(position), position == mSelectPosition);
+        convert(holder, position);
     }
 
     @Override
@@ -59,11 +59,10 @@ public abstract class TaoTabAdapter extends RecyclerView.Adapter<TaoViewHolder> 
     /**
      * 初始化ItemView布局
      *
-     * @param holder TaoViewHolder
-     * @param text   文案
-     * @param select 是否被选中
+     * @param holder   TaoViewHolder
+     * @param position 位置
      */
-    protected abstract void convert(@NonNull TaoViewHolder holder, String text, boolean select);
+    protected abstract void convert(@NonNull TaoViewHolder holder, int position);
 
     /**
      * 获取默认选中的位置
@@ -112,6 +111,15 @@ public abstract class TaoTabAdapter extends RecyclerView.Adapter<TaoViewHolder> 
     // ============================================================================
     // public method
     // ============================================================================
+
+    /**
+     * 获取选中的位置
+     *
+     * @return 位置
+     */
+    public int getSelectPosition() {
+        return mSelectPosition;
+    }
 
     @NonNull
     public List<String> getData() {
