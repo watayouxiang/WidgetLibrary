@@ -13,6 +13,8 @@ import com.watayouxiang.widgetlibrary.R;
 import com.watayouxiang.widgetlibrary.tablayout.TaoTabAdapter;
 import com.watayouxiang.widgetlibrary.tablayout.TaoViewHolder;
 
+import java.util.List;
+
 public class NavigateTabAdapter extends TaoTabAdapter {
     public NavigateTabAdapter(@NonNull RecyclerView recyclerView) {
         super(recyclerView);
@@ -36,5 +38,10 @@ public class NavigateTabAdapter extends TaoTabAdapter {
         tv_txt.setTextSize(TypedValue.COMPLEX_UNIT_SP, select ? 16 : 15);
         tv_txt.setTypeface(Typeface.defaultFromStyle(select ? Typeface.BOLD : Typeface.NORMAL));
         v_line.setVisibility(select ? View.VISIBLE : View.INVISIBLE);
+    }
+
+    @Override
+    protected int getDefaultSelectPosition(@NonNull List<String> data) {
+        return 0;
     }
 }

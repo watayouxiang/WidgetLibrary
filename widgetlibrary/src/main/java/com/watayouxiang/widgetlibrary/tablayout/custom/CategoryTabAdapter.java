@@ -9,6 +9,8 @@ import com.watayouxiang.widgetlibrary.R;
 import com.watayouxiang.widgetlibrary.tablayout.TaoTabAdapter;
 import com.watayouxiang.widgetlibrary.tablayout.TaoViewHolder;
 
+import java.util.List;
+
 public class CategoryTabAdapter extends TaoTabAdapter {
     public CategoryTabAdapter(@NonNull RecyclerView recyclerView) {
         super(recyclerView);
@@ -28,5 +30,10 @@ public class CategoryTabAdapter extends TaoTabAdapter {
 
         tv_txt.setText(String.valueOf(name));
         tv_txt.setSelected(select);
+    }
+
+    @Override
+    protected int getDefaultSelectPosition(@NonNull List<String> data) {
+        return 0;
     }
 }
