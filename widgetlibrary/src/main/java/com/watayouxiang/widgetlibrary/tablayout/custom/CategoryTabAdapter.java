@@ -21,8 +21,12 @@ public class CategoryTabAdapter extends TaoTabAdapter {
 
     @Override
     protected void convert(@NonNull TaoViewHolder holder, int position) {
+        String name = getData().get(position);
+        boolean select = position == getSelectPosition();
+
         TextView tv_txt = holder.itemView.findViewById(R.id.tv_txt);
-        tv_txt.setText(String.valueOf(getData().get(position)));
-        tv_txt.setSelected(position == getSelectPosition());
+
+        tv_txt.setText(String.valueOf(name));
+        tv_txt.setSelected(select);
     }
 }

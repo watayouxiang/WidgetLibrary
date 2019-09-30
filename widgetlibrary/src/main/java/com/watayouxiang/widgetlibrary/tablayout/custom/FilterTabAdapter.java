@@ -28,10 +28,13 @@ public class FilterTabAdapter extends TaoTabAdapter {
 
     @Override
     protected void convert(@NonNull TaoViewHolder holder, int position) {
+        String name = getData().get(position);
+        boolean select = position == getSelectPosition();
+
         TextView tv_txt = holder.itemView.findViewById(R.id.tv_txt);
         ImageView iv_arrow = holder.itemView.findViewById(R.id.iv_arrow);
-        tv_txt.setText(String.valueOf(getData().get(position)));
-        boolean select = position == getSelectPosition();
+
+        tv_txt.setText(String.valueOf(name));
         tv_txt.setSelected(select);
         iv_arrow.setVisibility(select ? View.VISIBLE : View.GONE);
     }
