@@ -21,6 +21,11 @@ public class FadingEdgeActivity extends DemoActivity {
     private RecyclerView rv;
 
     @Override
+    protected CharSequence getPageTitle() {
+        return "FadingEdge使用示例";
+    }
+
+    @Override
     protected void initView(Bundle savedInstanceState) {
         super.initView(savedInstanceState);
         rv = findViewById(R.id.rv);
