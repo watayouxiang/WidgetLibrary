@@ -36,7 +36,7 @@ public class FilterTabAdapter extends TaoTabAdapter {
 
         tv_txt.setText(String.valueOf(name));
         tv_txt.setSelected(select);
-        iv_arrow.setVisibility(select ? View.VISIBLE : View.GONE);
+        iv_arrow.setVisibility(select ? View.VISIBLE : View.INVISIBLE);
     }
 
     @Override
