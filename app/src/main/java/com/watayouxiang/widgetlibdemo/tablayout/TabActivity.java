@@ -26,7 +26,7 @@ public class TabActivity extends DemoActivity {
 
     @Override
     protected int getHolderViewId() {
-        return R.layout.activity_tab;
+        return R.layout.view_tab;
     }
 
     @Override

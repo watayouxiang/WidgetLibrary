@@ -21,6 +21,7 @@
         <activity android:name=".NoticeFlipperActivity" />
         <activity android:name=".SMSCodeViewActivity" />
         <activity android:name=".tablayout.TabActivity" />
+        <activity android:name=".FadingEdgeActivity" />
     </application>
 
 </manifest>
