@@ -10,11 +10,11 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 public class StaticItem extends RelativeLayout {
-    private TextView tvRedPoint;
-    private TextView tvName;
-    private TextView tvInfo;
-    private ImageView ivArrow;
-    private View vDivider;
+    public TextView tvRedPoint;
+    public TextView tvName;
+    public TextView tvInfo;
+    public ImageView ivArrow;
+    public View vDivider;
 
     private boolean mShowPoint;
     private boolean mShowArrow;
@@ -59,9 +59,5 @@ public class StaticItem extends RelativeLayout {
         tvInfo = findViewById(R.id.tv_info);
         ivArrow = findViewById(R.id.iv_arrow);
         vDivider = findViewById(R.id.v_divider);
-    }
-
-    public void setInfo(String info) {
-        tvInfo.setText(info == null ? "" : info);
     }
 }
