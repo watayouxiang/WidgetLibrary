@@ -11,7 +11,7 @@ import android.widget.TextView;
 
 public class StaticItem extends RelativeLayout {
     public TextView tvRedPoint;
-    public TextView tvName;
+    public TextView tvTitle;
     public TextView tvInfo;
     public ImageView ivArrow;
     public View vDivider;
@@ -41,7 +41,7 @@ public class StaticItem extends RelativeLayout {
         tvRedPoint.setVisibility(mShowPoint ? VISIBLE : GONE);
         ivArrow.setVisibility(mShowArrow ? VISIBLE : GONE);
         vDivider.setVisibility(mShowDivider ? VISIBLE : GONE);
-        tvName.setText(mTitleText == null ? "" : mTitleText);
+        tvTitle.setText(mTitleText == null ? "" : mTitleText);
     }
 
     private void obtainAttributes(Context context, AttributeSet attrs) {
@@ -55,7 +55,7 @@ public class StaticItem extends RelativeLayout {
 
     private void findView() {
         tvRedPoint = findViewById(R.id.tv_redPoint);
-        tvName = findViewById(R.id.tv_name);
+        tvTitle = findViewById(R.id.tv_title);
         tvInfo = findViewById(R.id.tv_info);
         ivArrow = findViewById(R.id.iv_arrow);
         vDivider = findViewById(R.id.v_divider);
