@@ -1,11 +1,32 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:si="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
-    android:layout_height="100dp"
+    android:layout_height="wrap_content"
     android:orientation="vertical">
 
     <com.watayouxiang.widgetlibrary.StaticItem
         android:layout_width="match_parent"
-        android:layout_height="50dp" />
+        android:layout_height="50dp"
+        si:si_arrow_show="true"
+        si:si_divider_show="true"
+        si:si_point_show="true"
+        si:si_title_text="名称" />
+
+    <com.watayouxiang.widgetlibrary.StaticItem
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        si:si_arrow_show="true"
+        si:si_divider_show="true"
+        si:si_point_show="false"
+        si:si_title_text="公告" />
+
+    <com.watayouxiang.widgetlibrary.StaticItem
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        si:si_arrow_show="false"
+        si:si_divider_show="false"
+        si:si_point_show="true"
+        si:si_title_text="人群方式" />
 
 </LinearLayout>

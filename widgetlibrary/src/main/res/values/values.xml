@@ -1,11 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
+    <attr name="si_point_show" format="boolean" />
+    <attr name="si_arrow_show" format="boolean" />
+    <attr name="si_divider_show" format="boolean" />
+    <attr name="si_title_text" format="string" />
+
     <declare-styleable name="StaticItemLayout">
-        <attr name="si_point_show" format="boolean" />
-        <attr name="si_arrow_show" format="boolean" />
-        <attr name="si_divider_show" format="boolean" />
-        <attr name="si_title_text" format="string" />
+        <attr name="si_point_show" />
+        <attr name="si_arrow_show" />
+        <attr name="si_divider_show" />
+        <attr name="si_title_text" />
     </declare-styleable>
 
 </resources>
