@@ -34,6 +34,7 @@ public class MainActivity extends ListActivity {
                 .addActivity(this, "短信验证码控件", SMSCodeViewActivity.class)
                 .addActivity(this, "Tab控件", TabActivity.class)
                 .addActivity(this, "FadingEdge使用示例", FadingEdgeActivity.class)
+                .addActivity(this, "测试StaticItem", StaticItemActivity.class)
                 ;
     }
 
