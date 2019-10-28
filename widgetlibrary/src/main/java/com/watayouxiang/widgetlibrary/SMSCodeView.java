@@ -39,7 +39,7 @@ public class SMSCodeView extends RelativeLayout {
 
     public SMSCodeView(Context context, AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
-        LayoutInflater.from(getContext()).inflate(R.layout.view_edittext_smscode, this, true);
+        LayoutInflater.from(getContext()).inflate(R.layout.sms_code, this, true);
         //init EditTexts
         mEtList.add((EditText) findViewById(R.id.et_code1));
         mEtList.add((EditText) findViewById(R.id.et_code2));

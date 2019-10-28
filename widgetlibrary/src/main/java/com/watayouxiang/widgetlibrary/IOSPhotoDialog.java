@@ -33,7 +33,7 @@ public class IOSPhotoDialog {
         //设置外部点击是否隐藏
         alertDialog.setCanceledOnTouchOutside(mCanceledOnTouchOutside);
         //设置自定义布局
-        View rootView = LayoutInflater.from(mContext).inflate(R.layout.view_photo_dialog, null);
+        View rootView = LayoutInflater.from(mContext).inflate(R.layout.ios_photo_dialog, null);
         rootView.findViewById(R.id.tv_cancel).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

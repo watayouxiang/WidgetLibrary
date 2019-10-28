@@ -22,6 +22,7 @@
         <activity android:name=".SMSCodeViewActivity" />
         <activity android:name=".tablayout.TabActivity" />
         <activity android:name=".FadingEdgeActivity" />
+        <activity android:name=".StaticItemActivity" />
     </application>
 
 </manifest>
