@@ -6,6 +6,7 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.watayouxiang.widgetlibrary.R;
+import com.watayouxiang.widgetlibrary.tablayout.TaoLayoutManager;
 import com.watayouxiang.widgetlibrary.tablayout.TaoTabAdapter;
 import com.watayouxiang.widgetlibrary.tablayout.TaoViewHolder;
 
@@ -34,6 +35,11 @@ public class CategoryTabAdapter extends TaoTabAdapter {
 
     @Override
     protected int getDefaultSelectPosition(@NonNull List<String> data) {
-        return 0;
+        return super.getDefaultSelectPosition(data);
+    }
+
+    @Override
+    protected TaoLayoutManager getLayoutManager(@NonNull RecyclerView recyclerView) {
+        return super.getLayoutManager(recyclerView);
     }
 }

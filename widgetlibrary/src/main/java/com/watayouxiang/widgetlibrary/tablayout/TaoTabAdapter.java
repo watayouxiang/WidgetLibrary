@@ -46,7 +46,7 @@ public abstract class TaoTabAdapter extends RecyclerView.Adapter<TaoViewHolder> 
     }
 
     // ============================================================================
-    // abstract method
+    // protected method
     // ============================================================================
 
     /**
@@ -70,7 +70,9 @@ public abstract class TaoTabAdapter extends RecyclerView.Adapter<TaoViewHolder> 
      * @param data 数据
      * @return 默认选中的位置
      */
-    protected abstract int getDefaultSelectPosition(@NonNull List<String> data);
+    protected int getDefaultSelectPosition(@NonNull List<String> data) {
+        return 0;
+    }
 
     /**
      * 获取布局管理器
