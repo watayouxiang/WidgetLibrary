@@ -107,8 +107,7 @@ class DovaTN extends Handler {
 
     void cancelActivityToast(Activity activity) {
         if (activity == null) return;
-        for (DovaToast t : toastQueue
-                ) {
+        for (DovaToast t : toastQueue) {
             if (t instanceof ActivityToast && t.getContext() == activity) {
                 remove(t);
             }
