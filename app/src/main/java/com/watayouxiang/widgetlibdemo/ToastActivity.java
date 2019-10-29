@@ -2,7 +2,7 @@ package com.watayouxiang.widgetlibdemo;
 
 import android.view.View;
 
-import com.dovar.dtoast.ToastUtil;
+import com.dovar.dtoast.NBToast;
 import com.watayouxiang.demoshell.ListActivity;
 import com.watayouxiang.demoshell.ListData;
 
@@ -10,16 +10,28 @@ public class ToastActivity extends ListActivity {
     @Override
     protected ListData getListData() {
         return new ListData()
-                .addClick("弹出ShortToast", new View.OnClickListener() {
+                .addClick("black_showShort", new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-                        ToastUtil.showShort(v.getContext().getApplicationContext(), "这是一个不受限制的吐司");
+                        NBToast.black_showShort(v.getContext().getApplicationContext(), "这是一个不受限制的吐司");
                     }
                 })
-                .addClick("弹出LongToast", new View.OnClickListener() {
+                .addClick("black_showLong", new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-                        ToastUtil.showLong(v.getContext().getApplicationContext(), "这是一个不受限制的吐司");
+                        NBToast.black_showLong(v.getContext().getApplicationContext(), "这是一个不受限制的吐司");
+                    }
+                })
+                .addClick("white_showShort", new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        NBToast.white_showShort(v.getContext().getApplicationContext(), "这是一个不受限制的吐司");
+                    }
+                })
+                .addClick("white_showLong", new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        NBToast.white_showLong(v.getContext().getApplicationContext(), "这是一个不受限制的吐司");
                     }
                 });
     }
@@ -27,6 +39,6 @@ public class ToastActivity extends ListActivity {
     @Override
     protected void onDestroy() {
         super.onDestroy();
-        ToastUtil.cancelAll();
+        NBToast.cancelAll();
     }
 }

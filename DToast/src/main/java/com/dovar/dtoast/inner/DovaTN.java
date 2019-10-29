@@ -118,7 +118,7 @@ class DovaTN extends Handler {
     private void removeInternal(DovaToast toast) {
         if (toast != null && toast.isShowing()) {
             // 2018/11/26 逻辑存在问题：队列中多个Toast使用相同ContentView时可能造成混乱。
-            // 不过，不同时展示多个Toast的话，也不会出现此问题.因为next.showLong()在last.removeView()动作之后。
+            // 不过，不同时展示多个Toast的话，也不会出现此问题.因为next.black_showLong()在last.removeView()动作之后。
             // DToast不会同时展示多个Toast，因此成功避免了此问题
             WindowManager windowManager = toast.getWMManager();
             if (windowManager != null) {

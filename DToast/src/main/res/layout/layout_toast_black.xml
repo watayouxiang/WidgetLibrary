@@ -11,4 +11,4 @@
     android:paddingBottom="10dp"
     android:text="这是一个Toast"
     android:textColor="#FFFFFF"
-    android:textSize="13sp" />
+    android:textSize="14sp" />
