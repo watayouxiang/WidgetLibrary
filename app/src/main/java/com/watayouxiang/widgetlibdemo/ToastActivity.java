@@ -10,17 +10,23 @@ public class ToastActivity extends ListActivity {
     @Override
     protected ListData getListData() {
         return new ListData()
-                .addClick("弹出默认Toast", new View.OnClickListener() {
+                .addClick("弹出ShortToast", new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-                        ToastUtil.show(v.getContext().getApplicationContext(), "这是一个不受限制的吐司");
+                        ToastUtil.showShort(v.getContext().getApplicationContext(), "这是一个不受限制的吐司");
                     }
                 })
-                .addClick("弹出自定义Toast", new View.OnClickListener() {
+                .addClick("弹出LongToast", new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-                        ToastUtil.showAtCenter(v.getContext().getApplicationContext(), "这是一个不受限制的吐司");
+                        ToastUtil.showLong(v.getContext().getApplicationContext(), "这是一个不受限制的吐司");
                     }
                 });
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        ToastUtil.cancelAll();
     }
 }

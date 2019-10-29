@@ -125,7 +125,7 @@ public class DovaToast implements IToast, Cloneable {
 
     private View assertContentViewNotNull() {
         if (contentView == null) {
-            contentView = View.inflate(mContext, R.layout.layout_toast, null);
+            contentView = View.inflate(mContext, R.layout.layout_toast_white, null);
         }
         return contentView;
     }

@@ -1,12 +1,9 @@
 package com.dovar.dtoast;
 
 import android.content.Context;
+import android.text.TextUtils;
 import android.view.Gravity;
-import android.view.LayoutInflater;
 import android.view.View;
-
-import com.dovar.dtoast.DToast;
-
 
 /**
  * @Date: 2018/11/13
@@ -16,32 +13,33 @@ import com.dovar.dtoast.DToast;
  * github: https://github.com/Dovar66/DToast
  */
 public class ToastUtil {
-
     /**
-     * 使用默认布局
+     * 较长显示
      */
-    public static void show(Context mContext, String msg) {
-        if (mContext == null || msg == null) return;
+    public static void showShort(Context mContext, String msg) {
+        if (TextUtils.isEmpty(msg)) return;
         DToast.make(mContext)
-                .setText(R.id.tv_content_default, msg)
-                .setGravity(Gravity.BOTTOM | Gravity.CENTER, 0, 200)
+                .setView(View.inflate(mContext, R.layout.layout_toast_black, null))
+                .setText(R.id.tv_content_custom, msg)
+                .setGravity(Gravity.CENTER, 0, 0)
                 .show();
     }
 
-
     /**
-     * 通过setView()设置自定义的Toast布局
+     * 短暂显示
      */
-    public static void showAtCenter(Context mContext, String msg) {
-        if (mContext == null || msg == null) return;
+    public static void showLong(Context mContext, String msg) {
+        if (TextUtils.isEmpty(msg)) return;
         DToast.make(mContext)
-                .setView(View.inflate(mContext, R.layout.layout_toast_center, null))
+                .setView(View.inflate(mContext, R.layout.layout_toast_black, null))
                 .setText(R.id.tv_content_custom, msg)
                 .setGravity(Gravity.CENTER, 0, 0)
                 .showLong();
     }
 
-    //退出APP时调用
+    /**
+     * 退出APP时调用
+     */
     public static void cancelAll() {
         DToast.cancel();
     }
