@@ -1,1 +1,1 @@
-include ':app', ':widgetlibrary'
+include ':app', ':widgetlibrary', ':DToast'

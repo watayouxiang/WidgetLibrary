@@ -30,4 +30,5 @@ dependencies {
 
 //    implementation 'com.watayouxiang:widgetlibrary:0.0.3'
     implementation project(path: ':widgetlibrary')
+    implementation project(path: ':DToast')
 }

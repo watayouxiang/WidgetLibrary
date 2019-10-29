@@ -23,6 +23,7 @@
         <activity android:name=".tablayout.TabActivity" />
         <activity android:name=".FadingEdgeActivity" />
         <activity android:name=".StaticItemActivity" />
+        <activity android:name=".ToastActivity" />
     </application>
 
 </manifest>

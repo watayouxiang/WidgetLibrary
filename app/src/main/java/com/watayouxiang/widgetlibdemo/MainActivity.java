@@ -35,7 +35,7 @@ public class MainActivity extends ListActivity {
                 .addActivity(this, "Tab控件", TabActivity.class)
                 .addActivity(this, "FadingEdge使用示例", FadingEdgeActivity.class)
                 .addActivity(this, "测试StaticItem", StaticItemActivity.class)
-                ;
+                .addActivity(this, "测试Toast", ToastActivity.class);
     }
 
     private void showPhotoDialog(final Context context) {
