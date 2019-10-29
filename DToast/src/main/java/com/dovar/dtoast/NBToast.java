@@ -63,6 +63,9 @@ public class NBToast {
      * 退出APP时调用
      */
     public static void cancelAll() {
-        DToast.cancel();
+        try {
+            DToast.cancel();
+        } catch (Exception ignored) {
+        }
     }
 }
