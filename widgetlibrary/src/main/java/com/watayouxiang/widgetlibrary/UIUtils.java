@@ -24,7 +24,7 @@ public class UIUtils {
     }
 
     /**
-     * dp-->px
+     * dp 转 px
      *
      * @param dp
      * @return
