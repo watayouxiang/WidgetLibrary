@@ -2,6 +2,7 @@ package com.watayouxiang.widgetlibrary;
 
 import android.content.Context;
 import android.text.Editable;
+import android.text.InputType;
 import android.text.TextUtils;
 import android.text.TextWatcher;
 import android.util.AttributeSet;
@@ -86,8 +87,9 @@ public class PayCodeView extends RelativeLayout {
         editText.requestFocus();
         editText.setSelection(editText.getText().length());
         // 设置其他不可用
-        for (EditText et : mEtList) {
+        for (final EditText et : mEtList) {
             if (et != editText) {
+                et.setInputType(InputType.TYPE_CLASS_NUMBER | InputType.TYPE_NUMBER_VARIATION_PASSWORD);
                 et.setEnabled(false);
             }
         }
@@ -132,6 +134,7 @@ public class PayCodeView extends RelativeLayout {
 
         @Override
         public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+//            editText.setInputType(InputType.TYPE_CLASS_NUMBER | InputType.TYPE_NUMBER_VARIATION_PASSWORD);
         }
 
         @Override
