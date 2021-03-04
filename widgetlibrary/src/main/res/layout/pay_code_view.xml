@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/shape_pay_code_bg"
+    android:orientation="horizontal">
+
+    <EditText
+        android:id="@+id/et_code1"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:background="@null"
+        android:gravity="center"
+        android:inputType="number"
+        android:maxLength="1"
+        android:textColor="#1A1A1A"
+        android:textSize="26sp" />
+
+    <View
+        android:layout_width="0.8dp"
+        android:layout_height="match_parent"
+        android:background="#E8E8E8" />
+
+    <EditText
+        android:id="@+id/et_code2"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:background="@null"
+        android:gravity="center"
+        android:inputType="number"
+        android:maxLength="1"
+        android:textColor="#1A1A1A"
+        android:textSize="26sp" />
+
+    <View
+        android:layout_width="0.8dp"
+        android:layout_height="match_parent"
+        android:background="#E8E8E8" />
+
+    <EditText
+        android:id="@+id/et_code3"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:background="@null"
+        android:gravity="center"
+        android:inputType="number"
+        android:maxLength="1"
+        android:textColor="#1A1A1A"
+        android:textSize="26sp" />
+
+    <View
+        android:layout_width="0.8dp"
+        android:layout_height="match_parent"
+        android:background="#E8E8E8" />
+
+    <EditText
+        android:id="@+id/et_code4"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:background="@null"
+        android:gravity="center"
+        android:inputType="number"
+        android:maxLength="1"
+        android:textColor="#1A1A1A"
+        android:textSize="26sp" />
+
+    <View
+        android:layout_width="0.8dp"
+        android:layout_height="match_parent"
+        android:background="#E8E8E8" />
+
+    <EditText
+        android:id="@+id/et_code5"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:background="@null"
+        android:gravity="center"
+        android:inputType="number"
+        android:maxLength="1"
+        android:textColor="#1A1A1A"
+        android:textSize="26sp" />
+
+    <View
+        android:layout_width="0.8dp"
+        android:layout_height="match_parent"
+        android:background="#E8E8E8" />
+
+    <EditText
+        android:id="@+id/et_code6"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:background="@null"
+        android:gravity="center"
+        android:inputType="number"
+        android:maxLength="1"
+        android:textColor="#1A1A1A"
+        android:textSize="26sp" />
+
+</LinearLayout>
