@@ -2,10 +2,10 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/DToast/DToast.iml" filepath="$PROJECT_DIR$/DToast/DToast.iml" />
       <module fileurl="file://$PROJECT_DIR$/WidgetLibrary.iml" filepath="$PROJECT_DIR$/WidgetLibrary.iml" />
-      <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
-      <module fileurl="file://$PROJECT_DIR$/widgetlibrary/widgetlibrary.iml" filepath="$PROJECT_DIR$/widgetlibrary/widgetlibrary.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/DToast/WidgetLibrary.DToast.iml" filepath="$PROJECT_DIR$/.idea/modules/DToast/WidgetLibrary.DToast.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/app/WidgetLibrary.app.iml" filepath="$PROJECT_DIR$/.idea/modules/app/WidgetLibrary.app.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/widgetlibrary/WidgetLibrary.widgetlibrary.iml" filepath="$PROJECT_DIR$/.idea/modules/widgetlibrary/WidgetLibrary.widgetlibrary.iml" />
     </modules>
   </component>
 </project>

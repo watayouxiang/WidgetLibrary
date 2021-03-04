@@ -7,7 +7,7 @@ buildscript {
         
     }
     dependencies {
-        classpath 'com.android.tools.build:gradle:3.2.1'
+        classpath 'com.android.tools.build:gradle:4.1.2'
         //插件是用来打包Maven所需文件的
         classpath 'com.github.dcendents:android-maven-gradle-plugin:2.1'
         //插件是用来将生成的 Maven 所需文件上传到 Bintray 的
