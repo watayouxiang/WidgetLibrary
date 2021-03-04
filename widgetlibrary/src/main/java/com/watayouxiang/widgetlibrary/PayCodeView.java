@@ -41,7 +41,7 @@ public class PayCodeView extends RelativeLayout {
 
         // 设置监听
         for (EditText editText : mEtList) {
-            editText.addTextChangedListener(new InputTextWatcher());
+            editText.addTextChangedListener(new InputTextWatcher(editText));
         }
         for (EditText editText : mEtList) {
             editText.setOnKeyListener(new InputTextKeyListener());
@@ -124,6 +124,12 @@ public class PayCodeView extends RelativeLayout {
     }
 
     private class InputTextWatcher implements TextWatcher {
+        private final EditText editText;
+
+        public InputTextWatcher(EditText editText) {
+            this.editText = editText;
+        }
+
         @Override
         public void beforeTextChanged(CharSequence s, int start, int count, int after) {
         }
