@@ -6,14 +6,14 @@ import android.view.View;
 import com.dovar.dtoast.NBToast;
 import com.watayouxiang.demoshell.DemoActivity;
 import com.watayouxiang.demoshell.ListData;
-import com.watayouxiang.widgetlibrary.PayCodeView;
+import com.watayouxiang.widgetlibrary.PayPwdView;
 
-public class PayCodeViewActivity extends DemoActivity {
-    private PayCodeView smsCodeView;
+public class PayPwdViewActivity extends DemoActivity {
+    private PayPwdView smsCodeView;
 
     @Override
     protected int getHolderViewId() {
-        return R.layout.view_paycode;
+        return R.layout.view_paypwd;
     }
 
     @Override
@@ -22,10 +22,10 @@ public class PayCodeViewActivity extends DemoActivity {
         smsCodeView = findViewById(R.id.smsCodeView);
 
         //设置监听
-        smsCodeView.setCallback(new PayCodeView.Callback() {
+        smsCodeView.setCallback(new PayPwdView.Callback() {
             @Override
             public void onInputFinished(String code) {
-                NBToast.black_showShort(PayCodeViewActivity.this, "验证码输入完成");
+                NBToast.black_showShort(PayPwdViewActivity.this, "code = " + code);
             }
         });
     }
@@ -43,7 +43,7 @@ public class PayCodeViewActivity extends DemoActivity {
                     @Override
                     public void onClick(View v) {
                         String code = smsCodeView.getCode();
-                        NBToast.black_showShort(PayCodeViewActivity.this, "code = " + code);
+                        NBToast.black_showShort(PayPwdViewActivity.this, "code = " + code);
                     }
                 })
                 ;

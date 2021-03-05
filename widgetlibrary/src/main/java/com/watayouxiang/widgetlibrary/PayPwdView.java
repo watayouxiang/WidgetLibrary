@@ -15,22 +15,22 @@ import android.widget.RelativeLayout;
 
 import java.util.ArrayList;
 
-public class PayCodeView extends RelativeLayout {
+public class PayPwdView extends RelativeLayout {
 
     private final ArrayList<EditText> mEtList = new ArrayList<>();
     private Callback mCallback;
 
-    public PayCodeView(Context context) {
+    public PayPwdView(Context context) {
         this(context, null);
     }
 
-    public PayCodeView(Context context, AttributeSet attrs) {
+    public PayPwdView(Context context, AttributeSet attrs) {
         this(context, attrs, 0);
     }
 
-    public PayCodeView(Context context, AttributeSet attrs, int defStyleAttr) {
+    public PayPwdView(Context context, AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
-        LayoutInflater.from(getContext()).inflate(R.layout.pay_code_view, this, true);
+        LayoutInflater.from(getContext()).inflate(R.layout.pay_pwd_view, this, true);
 
         // init EditTexts
         mEtList.add((EditText) findViewById(R.id.et_code1));
