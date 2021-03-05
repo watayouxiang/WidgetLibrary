@@ -2,7 +2,6 @@ package com.watayouxiang.widgetlibrary;
 
 import android.content.Context;
 import android.text.Editable;
-import android.text.InputType;
 import android.text.TextUtils;
 import android.text.TextWatcher;
 import android.util.AttributeSet;
@@ -15,22 +14,22 @@ import android.widget.RelativeLayout;
 
 import java.util.ArrayList;
 
-public class PayPwdView extends RelativeLayout {
+public class SMSCodeEditText extends RelativeLayout {
 
     private final ArrayList<EditText> mEtList = new ArrayList<>();
     private Callback mCallback;
 
-    public PayPwdView(Context context) {
+    public SMSCodeEditText(Context context) {
         this(context, null);
     }
 
-    public PayPwdView(Context context, AttributeSet attrs) {
+    public SMSCodeEditText(Context context, AttributeSet attrs) {
         this(context, attrs, 0);
     }
 
-    public PayPwdView(Context context, AttributeSet attrs, int defStyleAttr) {
+    public SMSCodeEditText(Context context, AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
-        LayoutInflater.from(getContext()).inflate(R.layout.pay_pwd_view, this, true);
+        LayoutInflater.from(getContext()).inflate(R.layout.sms_code_edittext, this, true);
 
         // init EditTexts
         mEtList.add((EditText) findViewById(R.id.et_code1));
@@ -42,7 +41,7 @@ public class PayPwdView extends RelativeLayout {
 
         // 设置监听
         for (EditText editText : mEtList) {
-            editText.addTextChangedListener(new InputTextWatcher(editText));
+            editText.addTextChangedListener(new InputTextWatcher());
         }
         for (EditText editText : mEtList) {
             editText.setOnKeyListener(new InputTextKeyListener());
@@ -50,7 +49,8 @@ public class PayPwdView extends RelativeLayout {
 
         // 设置可用性
         for (int i = 0; i < mEtList.size(); i++) {
-            mEtList.get(i).setEnabled(i == 0);
+            EditText editText = mEtList.get(i);
+            editText.setEnabled(i == 0);
         }
 
         // 弹出键盘
@@ -89,7 +89,6 @@ public class PayPwdView extends RelativeLayout {
         // 设置其他不可用
         for (final EditText et : mEtList) {
             if (et != editText) {
-                et.setInputType(InputType.TYPE_CLASS_NUMBER | InputType.TYPE_NUMBER_VARIATION_PASSWORD);
                 et.setEnabled(false);
             }
         }
@@ -126,15 +125,8 @@ public class PayPwdView extends RelativeLayout {
     }
 
     private class InputTextWatcher implements TextWatcher {
-        private final EditText editText;
-
-        public InputTextWatcher(EditText editText) {
-            this.editText = editText;
-        }
-
         @Override
         public void beforeTextChanged(CharSequence s, int start, int count, int after) {
-//            editText.setInputType(InputType.TYPE_CLASS_NUMBER | InputType.TYPE_NUMBER_VARIATION_PASSWORD);
         }
 
         @Override

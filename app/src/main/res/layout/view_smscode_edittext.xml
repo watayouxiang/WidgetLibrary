@@ -4,7 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content">
 
-    <com.watayouxiang.widgetlibrary.PayPwdView
+    <com.watayouxiang.widgetlibrary.SMSCodeEditText
         android:id="@+id/smsCodeView"
         android:layout_width="0dp"
         android:layout_height="60dp"
